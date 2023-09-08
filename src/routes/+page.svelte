@@ -3,17 +3,14 @@
 	import RepoCards from "../lib/repo-cards.svelte";
 	import {GET} from "./api/+server"
 
-	import { writable , get} from "svelte/store"; 
+	 
 
-	let cards = writable([]);
 	
 	
+	let cards = []
 
-		onMount(()=>{
-				GET().then(res=>{
-						cards.set(res)
-						let cardValue = get(cards)
-				})
+		onMount(async()=>{
+			cards = GET();
 		})
 
 	
@@ -23,9 +20,11 @@
 
 </script>
 
-<div class="flex gap-2 m-2">
+
+	
+<div class="grid lg:grid-cols-4 lg:gap-20 md:grid-cols-3 md:gap-10 sm:grid-cols-2 sm:gap-10 grid-cols-1 gap-5 m-5 justify-items-center ">
 	<RepoCards repoLink="https://www.skeleton.dev/" repoName="Skeleton UI" ifSvg=true madeWith="Svelte" svgElement='<svg
-	class="fill-token -scale-x-[100%] h-full"
+	class="fill-token -scale-x-[100%] h-full w-full"
 	xmlns="http://www.w3.org/2000/svg"
 	viewBox="0 0 200 200"
 >
@@ -38,12 +37,16 @@
 
 <RepoCards repoIcon="/svelte.png" repoName="Svelte" madeWith="JavaScript" repoLink="https://www.svelte.dev" repoDesc="The Official Svelte Site for Production" ></RepoCards>
 <RepoCards repoIcon="/github-lg.svg" repoName="GitHub" repoLink="https://github.com/" colorInvert=true></RepoCards>
-
-{#await cardValue}
 	
-{:then } 
-	
-{/await}
+	{#await cards}
+	<p>waiting for cards.....</p>
 
+	{:then cards} 
+	{#each cards as card }
+		<RepoCards repoIcon={card.icon} repoDesc={card.desc} repoLink={card.link} repoName={card.name} madeWith={card.made}></RepoCards>
+	{/each}
+	{:catch error}
+	<p>{error}</p>
+	{/await}
 
 </div>

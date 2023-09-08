@@ -6,7 +6,7 @@ export async function GET(){
   let data = [];
   json.forEach(el=>{
 
-    if(!el.private){
+    if(!el.private && !el.fork){
       let tempObj = {
         name:el.name,
         link:el.html_url,
