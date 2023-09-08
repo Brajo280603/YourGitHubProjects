@@ -23,7 +23,7 @@
 
 	
 <div class="grid lg:grid-cols-4 lg:gap-20 md:grid-cols-3 md:gap-10 sm:grid-cols-2 sm:gap-10 grid-cols-1 gap-5 m-5 justify-items-center ">
-	<RepoCards repoLink="https://www.skeleton.dev/" repoName="Skeleton UI" ifSvg=true madeWith="Svelte" svgElement='<svg
+	<RepoCards repoLink="https://www.skeleton.dev/" repoName="Skeleton UI" ifSvg=true madeWith="Svelte" repoDesc="Ui library used to make this App" svgElement='<svg
 	class="fill-token -scale-x-[100%] h-full w-full"
 	xmlns="http://www.w3.org/2000/svg"
 	viewBox="0 0 200 200"
@@ -35,8 +35,8 @@
 </svg>'></RepoCards>
 
 
-<RepoCards repoIcon="/svelte.png" repoName="Svelte" madeWith="JavaScript" repoLink="https://www.svelte.dev" repoDesc="The Official Svelte Site for Production" ></RepoCards>
-<RepoCards repoIcon="/github-lg.svg" repoName="GitHub" repoLink="https://github.com/" colorInvert=true></RepoCards>
+<RepoCards repoIcon="/svelte.png" repoName="Svelte" madeWith="JavaScript" repoLink="https://www.svelte.dev" repoDesc="Framework Used to make this App" ></RepoCards>
+<RepoCards repoIcon="/github-lg.svg" repoName="GitHub" repoLink="https://github.com/Brajo280603/YourGitHubProjects" colorInvert=true repoDesc="Source Code of this App"></RepoCards>
 	
 	{#await cards}
 	<p>waiting for cards.....</p>
