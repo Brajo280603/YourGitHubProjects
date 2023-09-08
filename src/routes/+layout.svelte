@@ -23,7 +23,7 @@
 <Drawer>
 	<div class="h-full w-full flex flex-col relative">
 		<div class="flex items-start w-full justify-end absolute">
-			<button class=" btn-icon btn mx-4 my-3" on:click={()=>{ drawerStore.close() }}>
+			<button class=" btn-icon btn mx-4 my-3" on:click={()=>{ drawerStore.close() }} aria-label="information close button">
 				<img class="h-8 dark:invert" src="/close.png" alt="">
 			</button>
 		</div>
@@ -44,7 +44,7 @@
 		<!-- App Bar -->
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<button class="h-full btn-icon active:shadow-none btn" on:click={()=>{ drawerStore.open() }}>
+				<button class="h-full btn-icon active:shadow-none btn" on:click={()=>{ drawerStore.open() }} aria-label="information open button">
 					<img class="h-8 dark:invert" src="/info.png" alt="">
 				</button>
 			</svelte:fragment>
